@@ -17,6 +17,8 @@ namespace DeshanSLIIT.Models
         [Required]
         public string Location { get; set; }
         [Required]
+        public string Category { get; set; }
+        [Required]
         public DateTime Date { get; set; } = DateTime.Now;
     }
 }

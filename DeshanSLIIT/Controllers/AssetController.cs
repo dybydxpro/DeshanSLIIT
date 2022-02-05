@@ -65,6 +65,7 @@ namespace DeshanSLIIT.Controllers
                 data.Name = item.Name;
                 data.ISBN = item.ISBN;
                 data.Location = td.Location;
+                data.Category = Convert.ToString(td.Cat);
                 _database.Transfers.Add(data);
                 _database.SaveChanges();
 

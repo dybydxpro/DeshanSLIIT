@@ -15,6 +15,7 @@
           <th scope="col">ISBN</th>
           <th scope="col">Location</th>
           <th scope="col">Date</th>
+          <th scope="col">Category</th>
           <th scope="col">Print</th>
         </tr>
     </thead>
@@ -29,6 +30,7 @@
               <td>@data.ISBN</td>
               <td>@data.Location</td>
               <td>@data.Date</td>
+              <td>@data.Category</td>
               <td><a type="button" class="btn btn-warning" asp-controller="Asset" asp-action="TransferTableByID" asp-route-Id="@data.TID">Print</a></td>
             </tr>
         }
