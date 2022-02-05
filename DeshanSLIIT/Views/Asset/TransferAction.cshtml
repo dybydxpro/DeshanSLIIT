@@ -1,0 +1,37 @@
+﻿@model TransferDetails
+@{
+    ViewData["Title"] = "TransferAction";
+}
+
+<h1>TransferAction</h1>
+
+<form method="post">
+    <div class="row justify-content-center">
+        <div  class="col-8">
+            <div class="form-group">
+              <lable for="txtLocation">Location</lable>
+              <input type="text" placeholder="" class="form-control" id="txtLocation" asp-for="Location" required>
+            </div>
+            <div class="form-group">
+              <lable for="txtLocation">Category</lable>
+              <input type="text" placeholder="" class="form-control" id="txtLocation" asp-for="Cat" required>
+            </div>
+            @*<div class="form-group">
+                  <lable for="txtDetails">Category</lable>
+                  <select class="form-select" aria-label="Default select example">
+                      <option selected>Open this select menu</option>
+                      @foreach (var item in Model.Categories)
+                      {
+                          <option value="@item.Id">@item.CategoryType</option>
+                      }
+                  </select>
+            </div>*@
+            <p></p>
+            <div class="form-group">
+                <div class="col-2">
+                    <button type="submit" class="btn btn-success" id="btnSave" asp-controller="Asset" asp-action="TransferAssets">Confirm</button>
+                </div>      
+            </div>
+        </div>
+    </div>
+</form>

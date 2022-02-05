@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Cart>
+@{
+    ViewData["Title"] = "Cart";
+}
+
+<h1>Cart</h1>
+
+<a type="button" class="btn btn-primary" asp-controller="Asset" asp-action="Index">Index</a>
+&nbsp;
+<a type="button" class="btn btn-primary" asp-controller="Asset" asp-action="TransferTable">Transfer Table</a>
+<p></p>
+<h1>SetToCart</h1>
+
+<table class="table table-success table-hover">
+    <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">AssetID</th>
+          <th scope="col">Name</th>
+          <th scope="col">ISBN</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model)
+        {
+            <tr>
+          <th scope="row">@data.Id</th>
+          <td>@data.AssetID</td>
+          <td>@data.Name</td>
+          <td>@data.ISBN</td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+@if (Model != null && Model.Count() != 0)
+{
+   <a type="button" class="btn btn-primary" asp-controller="Asset" asp-action="TransferAction">Transfer</a>
+}

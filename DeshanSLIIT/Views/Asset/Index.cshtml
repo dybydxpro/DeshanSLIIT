@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Asset>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<a type="button" class="btn btn-primary" asp-controller="Asset" asp-action="Cart">Cart</a> 
+&nbsp;
+<a type="button" class="btn btn-primary" asp-controller="Asset" asp-action="TransferTable">Transfer Table</a>
+&nbsp;
+<a type="button" class="btn btn-primary" asp-controller="Asset" asp-action="FetchCategory">FetchCategory</a>
+<p></p>
+<h1>Index</h1>
+
+<table class="table table-success table-hover">
+    <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">ISBN</th>
+          <th scope="col">Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model)
+        {
+            <tr>
+              <th scope="row">@data.Id</th>
+              <td>@data.Name</td>
+              <td>@data.ISBN</td>
+              <td><a type="button" class="btn btn-primary" asp-controller="Asset" asp-action="SetToCart" asp-route-Id="@data.Id">Add to cart</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

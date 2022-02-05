@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Transfer>
+@{
+    ViewData["Title"] = "TransferTable";
+}
+
+<h1>TransferTable</h1>
+
+<table class="table table-danger table-hover">
+    <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">TID</th>
+          <th scope="col">CartID</th>
+          <th scope="col">Name</th>
+          <th scope="col">ISBN</th>
+          <th scope="col">Location</th>
+          <th scope="col">Date</th>
+          <th scope="col">Print</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model)
+        {
+            <tr>
+              <th scope="row">@data.Id</th>
+              <td>@data.TID</td>
+              <td>@data.CartID</td>
+              <td>@data.Name</td>
+              <td>@data.ISBN</td>
+              <td>@data.Location</td>
+              <td>@data.Date</td>
+              <td><a type="button" class="btn btn-warning" asp-controller="Asset" asp-action="TransferTableByID" asp-route-Id="@data.TID">Print</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
