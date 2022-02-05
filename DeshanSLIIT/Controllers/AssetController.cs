@@ -1,5 +1,6 @@
 ﻿using DeshanSLIIT.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace DeshanSLIIT.Controllers
 {
@@ -46,6 +47,7 @@ namespace DeshanSLIIT.Controllers
             return RedirectToAction("Index");
         }
 
+        //Oparation
         public IActionResult TransferAssets(TransferDetails td)
         {
             IEnumerable<Cart> Cartobj = _database.Carts.ToList();
@@ -55,7 +57,6 @@ namespace DeshanSLIIT.Controllers
             }
 
             int nextTID = MaxTID();
-
             foreach (var item in Cartobj)
             {
                 int tempID = item.Id;
@@ -65,17 +66,19 @@ namespace DeshanSLIIT.Controllers
                 data.Name = item.Name;
                 data.ISBN = item.ISBN;
                 data.Location = td.Location;
-                data.Category = Convert.ToString(td.Cat);
+                data.Category = td.CatData.CategoryType;
                 _database.Transfers.Add(data);
                 _database.SaveChanges();
-
                 Delete(tempID);
             }
             return RedirectToAction("Index");
         }
 
+        //Oparation
         public IActionResult TransferAction()
         {
+            List<Category> categories = _database.Categories.ToList();
+            ViewBag.CategoryList = new SelectList(categories, "Id", "CategoryType");
             return View();
         }
 
