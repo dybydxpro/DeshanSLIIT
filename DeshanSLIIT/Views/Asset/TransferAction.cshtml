@@ -12,10 +12,6 @@
               <lable for="txtLocation">Location</lable>
               <input type="text" placeholder="" class="form-control" id="txtLocation" asp-for="Location" required>
             </div>
-            @*<div class="form-group">
-              <lable for="txtLocation">Category</lable>
-              <input type="text" placeholder="" class="form-control" id="txtLocation" asp-for="Cat" required>
-            </div>*@
             <div class="form-group">
                   <lable for="txtDetails">Category</lable>
                   @Html.DropDownListFor(model => model.CatData.CategoryType, ViewBag.CategoryList as SelectList, "--- Select ---", new {@class = "form-control"})
