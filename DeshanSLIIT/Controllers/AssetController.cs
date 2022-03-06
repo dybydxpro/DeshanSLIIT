@@ -26,7 +26,14 @@ namespace DeshanSLIIT.Controllers
         public IActionResult TransferTable()
         {
             IEnumerable<Transfer> data = _database.Transfers.ToList();
-            return View(data);
+            List<Transfer> result = new List<Transfer>();
+            foreach (var transfer in data)
+            {
+                var cat = _database.Categories.Find(Convert.ToInt32(transfer.Category));
+                transfer.Category = cat.CategoryType;
+                result.Add(transfer);
+            }
+            return View(result);
         }
 
         public IActionResult TransferTableByID(int? id)
