@@ -1,19 +1,5 @@
 ﻿const api_url = "https://localhost:44310/api/All/getCatData";
-var tags = [
-    "Delhi",
-    "Ahemdabad",
-    "Punjab",
-    "Uttar Pradesh",
-    "Himachal Pradesh",
-    "Karnatka",
-    "Kerela",
-    "Maharashtra",
-    "Gujrat",
-    "Rajasthan",
-    "Bihar",
-    "Tamil Nadu",
-    "Haryana"
-];
+var tags = [];
 
 async function getapi(url) {
     const response = await fetch(url);
@@ -26,25 +12,19 @@ async function getapi(url) {
     show(data);
 }
 
-
-/*function hideloader() {
-    document.getElementById('loading').style.display = 'none';
-}*/
-
-function show(data) {
-    var tab = "";
-    data.map(datas => {
-        tab = tab + "<option value=" + datas + "></option>";
-    });
-    alert(tab);
-    document.getElementById("datalist").innerHTML = tab;
-}
+//function show(data) {
+//    var tab = "";
+//    data.map(datas => {
+//        tab = tab + "<option value=" + datas + "></option>";
+//    });
+//    alert(tab);
+//    document.getElementById("datalist").innerHTML = tab;
+//}
 
 
 getapi(api_url);
 
 var n = tags.length; 
-
 function ac(value) {
     document.getElementById('datalist').innerHTML = '';
     l = value.length;
