@@ -1,7 +1,7 @@
 ﻿using DeshanSLIIT.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+
 
 namespace DeshanSLIIT.Controllers
 {
@@ -18,7 +18,8 @@ namespace DeshanSLIIT.Controllers
         [HttpGet("getCatData")]
         public async Task<ActionResult<List<AppDatabaseContexts>>> CatForDropdown()
         {
-            IEnumerable<Category> data =await _database.Categories.ToListAsync();
+            //IEnumerable<Category> data =await _database.Categories.ToListAsync();
+            var data = await _database.Categories.Select(m => m.CategoryType).ToListAsync();
             return Ok(data);
         }
     }

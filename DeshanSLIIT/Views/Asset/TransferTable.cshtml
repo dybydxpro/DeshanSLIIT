@@ -6,19 +6,22 @@
 <h1>TransferTable</h1>
 
 <div>
-    <div class="dropdown col-3">
-      <form action="" method="POST">
-      <input type="text" class="form-control" list="browsers" name="browser" id="browser">
-      <datalist id="browsers">
-        @*<option value="Edge"/>
-        <option value="Firefox"/>
-        <option value="Chrome"/>
-        <option value="Opera"/>
-        <option value="Safari"/>*@
-      </datalist>
-    </form>
-    </div>
-    <br/>
+    <input type="text" list="datalist"  onkeyup="ac(this.value)">
+    <datalist id="datalist">
+        @*<option value="Delhi"></option>
+        <option value="Ahemdabad"></option>
+        <option value="Punjab"></option>
+        <option value="Uttar Pradesh"></option>
+        <option value="Himachal Pradesh"></option>
+        <option value="Karnatka"></option>
+        <option value="Kerela"></option>
+        <option value="Maharashtra"></option>
+        <option value="Gujrat"></option>
+        <option value="Rajasthan"></option>
+        <option value="Bihar"></option>
+        <option value="Tamil Nadu"></option>
+        <option value="Haryana"></option>*@
+    </datalist>
 </div>
 
 <table class="table table-danger table-hover">

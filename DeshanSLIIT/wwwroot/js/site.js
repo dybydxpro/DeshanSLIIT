@@ -1,37 +1,59 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿const api_url = "https://localhost:44310/api/All/getCatData";
+var tags = [
+    "Delhi",
+    "Ahemdabad",
+    "Punjab",
+    "Uttar Pradesh",
+    "Himachal Pradesh",
+    "Karnatka",
+    "Kerela",
+    "Maharashtra",
+    "Gujrat",
+    "Rajasthan",
+    "Bihar",
+    "Tamil Nadu",
+    "Haryana"
+];
 
-// Write your JavaScript code.
-// Material Select Initialization
-
-//$(document).ready(function () {
-//    $.ajax({
-//        url: 'https://localhost:7032/api/All/getCatData',
-//            type: 'GET',
-//            dataType: 'json',
-//            success: function (data, textStatus, xhr) {
-//        console.log(data);
-//    },
-//        error: function (xhr, textStatus, errorThrown) {
-//            console.log('Error in Database');
-//        }  
-//    });  
-//});
-
-function getData() {
-    $.ajax({
-        dataType: 'json',
-        url: 'https://localhost:7032/api/All/getCatData',
-        data: { data: data }
-    }).done(function (data) {
-        manageRow(data.data);
-    });
+async function getapi(url) {
+    const response = await fetch(url);
+    var data = await response.json();
+    console.log(data);
+    tags = data;
+    if (response) {
+        hideloader();
+    }
+    show(data);
 }
 
-function manageRow(data) {
-    var rows = '';
-    $.each(data, function (key, value) {
-        rows = rows + '<option value="' + value.categoryType +'"/>';
+
+/*function hideloader() {
+    document.getElementById('loading').style.display = 'none';
+}*/
+
+function show(data) {
+    var tab = "";
+    data.map(datas => {
+        tab = tab + "<option value=" + datas + "></option>";
     });
-    $("browsers").html(rows);
+    alert(tab);
+    document.getElementById("datalist").innerHTML = tab;
+}
+
+
+getapi(api_url);
+
+var n = tags.length; 
+
+function ac(value) {
+    document.getElementById('datalist').innerHTML = '';
+    l = value.length;
+    for (var i = 0; i < n; i++) {
+        if (((tags[i].toLowerCase()).indexOf(value.toLowerCase())) > -1) {
+            var node = document.createElement("option");
+            var val = document.createTextNode(tags[i]);
+            node.appendChild(val);
+            document.getElementById("datalist").appendChild(node);
+        }
+    }
 }
