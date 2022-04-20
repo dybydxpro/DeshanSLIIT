@@ -8,8 +8,13 @@
 <a type="button" class="btn btn-primary" asp-controller="Asset" asp-action="Cart">Cart</a> 
 &nbsp;
 <a type="button" class="btn btn-primary" asp-controller="Asset" asp-action="TransferTable">Transfer Table</a>
+&nbsp;
+<a type="button" class="btn btn-primary" asp-controller="Auth" asp-action="Login">Login</a>
+&nbsp;
+<a type="button" class="btn btn-warning" asp-controller="Test" asp-action="Index">Test</a>
+&nbsp;
+<a class="btn btn-secondary" href="@Url.Action("DownloadExcel", "Asset")">Download</a>
 <p></p>
-<h1>Index</h1>
 
 <table class="table table-success table-hover">
     <thead>

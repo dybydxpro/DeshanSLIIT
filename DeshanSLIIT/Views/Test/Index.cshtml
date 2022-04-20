@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Test>
+@{
+
+}
+@{
+    var txt = "";
+}
+@foreach (var data in Model)
+{
+    txt = data.Subject;
+}
+
+<h1>Subject is: @txt</h1> <br/>
+
+<table class="table table-danger table-hover">
+    <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model)
+        {
+            <tr>
+              <td>@data.Id</td>
+              <td>@data.Name</td>
+              <td>@data.Age</td>
+            </tr>
+        }
+    </tbody>
+</table>

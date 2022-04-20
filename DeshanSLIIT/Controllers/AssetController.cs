@@ -1,4 +1,5 @@
 ﻿using DeshanSLIIT.Models;
+using Fingers10.ExcelExport.ActionResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -100,6 +101,22 @@ namespace DeshanSLIIT.Controllers
         {
             var maxId = (_database.Transfers.Select(q => (int?)q.TID).Max() ?? 0) + 1;
             return maxId;
+        }
+
+        public IActionResult DownloadExcel()
+        {
+            IEnumerable<Asset> data = _database.Assets.ToList();
+            List<Asset> temp = new List<Asset>();
+            foreach (Asset item in data)
+            {
+                temp.Add(new Asset
+                {
+                    Id = item.Id,
+                    Name = item.Name,
+                    ISBN = item.ISBN,
+                });
+            }
+            return new ExcelResult<Asset>(temp, "Sheet1", "AssetReport");
         }
     }
 }

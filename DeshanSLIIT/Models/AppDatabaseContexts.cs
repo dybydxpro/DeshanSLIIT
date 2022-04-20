@@ -13,5 +13,7 @@ namespace DeshanSLIIT.Models
         public DbSet<Cart> Carts { get; set; }
         public DbSet<Transfer> Transfers { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Auth> Auths { get; set; } 
+        public DbSet<Test> Tests { get; set; }
     }
 }
